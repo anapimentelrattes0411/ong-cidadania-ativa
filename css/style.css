@@ -1,0 +1,1049 @@
+/* =========================================================
+   ONG ESPERANÇA VIVA
+   STYLE.CSS
+   Compatível com index.html, projetos.html e cadastro.html
+   ========================================================= */
+
+
+/* =========================================================
+   1. DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+    /* Cores */
+    --cor-primaria: #2E7D32;
+    --cor-primaria-clara: #66BB6A;
+    --cor-secundaria: #1565C0;
+    --cor-secundaria-clara: #42A5F5;
+    --cor-destaque: #FFB300;
+    --cor-fundo: #F5F5F5;
+    --cor-neutra: #FFFFFF;
+    --cor-texto: #333333;
+
+    /* Tipografia */
+    --fonte-xs: 0.75rem;
+    --fonte-sm: 0.875rem;
+    --fonte-md: 1rem;
+    --fonte-lg: 1.5rem;
+    --fonte-xl: 2rem;
+
+    /* Espaçamentos */
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 16px;
+    --espaco-4: 24px;
+    --espaco-5: 32px;
+    --espaco-6: 48px;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* =========================================================
+   3. BODY
+   ========================================================= */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--fonte-md);
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background: var(--cor-fundo);
+}
+
+
+/* =========================================================
+   4. CABEÇALHO NORMAL
+   Usado em projetos.html e cadastro.html
+   ========================================================= */
+
+header {
+    background: var(--cor-primaria);
+    color: var(--cor-neutra);
+    text-align: center;
+    padding: var(--espaco-5);
+}
+
+header h1 {
+    font-size: var(--fonte-xl);
+    margin-bottom: var(--espaco-2);
+}
+
+header p {
+    font-size: var(--fonte-md);
+}
+
+
+/* =========================================================
+   5. CABEÇALHO HERO
+   Usado no index.html
+   ========================================================= */
+
+.hero {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    overflow: visible;
+    background: var(--cor-primaria);
+}
+
+/* Imagem usada como fundo do cabeçalho */
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    margin: 0;
+
+    opacity: 0.45;
+
+    z-index: 1;
+}
+
+
+/* Camada verde sobre a imagem */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(46, 125, 50, 0.45);
+
+    z-index: 2;
+}
+
+
+/* Conteúdo do cabeçalho */
+
+.hero-overlay {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    min-height: 380px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: var(--espaco-5);
+
+    padding-bottom: 90px;
+}
+
+
+.hero h1 {
+    color: var(--cor-neutra);
+
+    font-size: clamp(2rem, 5vw, 3.2rem);
+
+    margin-bottom: var(--espaco-2);
+
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+
+.hero p {
+    color: var(--cor-neutra);
+
+    font-size: var(--fonte-lg);
+
+    margin-bottom: 0;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+}
+
+
+/* =========================================================
+   6. NAVEGAÇÃO
+   ========================================================= */
+
+nav {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: var(--espaco-3);
+
+    margin-top: var(--espaco-4);
+}
+
+
+/* Links normais */
+
+nav a {
+    color: var(--cor-neutra);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: var(--espaco-2) var(--espaco-3);
+
+    border-radius: var(--espaco-1);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+nav a:hover,
+nav a:focus {
+    background: var(--cor-primaria-clara);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   7. MENU DO HERO
+   ========================================================= */
+
+.hero nav {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+
+    min-height: 64px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: var(--espaco-3);
+
+    margin: 0;
+
+    padding: var(--espaco-2) var(--espaco-4);
+
+    background: rgba(21, 101, 192, 0.94);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* Links do menu */
+
+.hero nav > a,
+.hero nav .dropdown > a {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: var(--cor-neutra);
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    padding: var(--espaco-2) var(--espaco-4);
+
+    border-radius: 6px;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.hero nav > a:hover,
+.hero nav > a:focus,
+.hero nav .dropdown > a:hover,
+.hero nav .dropdown > a:focus {
+    background: rgba(255, 255, 255, 0.18);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   8. DROPDOWN — PROJETOS
+   ========================================================= */
+
+.dropdown {
+    position: relative;
+}
+
+
+/* Mantém Projetos alinhado com os outros links */
+
+.hero .dropdown {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* Caixa de Doações / Voluntariado */
+
+.hero .dropdown-content {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 4px);
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 190px;
+
+    padding: var(--espaco-2);
+
+    background: var(--cor-neutra);
+
+    border-radius: 8px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+
+    z-index: 100;
+}
+
+
+/* Abre o menu */
+
+.hero .dropdown:hover .dropdown-content,
+.hero .dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+
+/* Links dentro do dropdown */
+
+.hero .dropdown-content a {
+    display: block;
+
+    width: 100%;
+
+    padding: var(--espaco-2) var(--espaco-3);
+
+    color: var(--cor-texto);
+
+    text-decoration: none;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    border-radius: 5px;
+
+    white-space: nowrap;
+}
+
+
+.hero .dropdown-content a:hover,
+.hero .dropdown-content a:focus {
+    background: var(--cor-fundo);
+
+    color: var(--cor-primaria);
+}
+
+
+/* =========================================================
+   9. MENU HAMBÚRGUER
+   ========================================================= */
+
+.menu-toggle {
+    display: none;
+
+    color: var(--cor-neutra);
+
+    font-weight: bold;
+
+    padding: var(--espaco-2) var(--espaco-4);
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    background: var(--cor-secundaria);
+}
+
+
+/* Checkbox invisível */
+
+#menu {
+    display: none;
+}
+
+
+/* =========================================================
+   10. LAYOUT PRINCIPAL
+   GRID DE 12 COLUNAS
+   ========================================================= */
+
+main {
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: var(--espaco-4);
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: var(--espaco-5);
+}
+
+
+/* Mantém o artigo centralizado */
+
+article {
+    grid-column: 2 / 12;
+
+    background: var(--cor-neutra);
+
+    padding: var(--espaco-5);
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   11. SEÇÕES
+   ========================================================= */
+
+section {
+    margin-bottom: var(--espaco-6);
+}
+
+
+h2 {
+    font-size: var(--fonte-lg);
+
+    color: var(--cor-primaria);
+
+    margin-bottom: var(--espaco-3);
+}
+
+
+h3 {
+    font-size: var(--fonte-md);
+
+    color: var(--cor-secundaria);
+
+    margin:
+        var(--espaco-4)
+        0
+        var(--espaco-2);
+}
+
+
+p {
+    margin-bottom: var(--espaco-3);
+}
+
+
+strong {
+    color: var(--cor-primaria);
+}
+
+
+/* =========================================================
+   12. IMAGENS DAS PÁGINAS
+   ========================================================= */
+
+article img {
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin:
+        var(--espaco-3)
+        auto;
+
+    border-radius: 8px;
+}
+
+
+/* =========================================================
+   13. LISTAS
+   ========================================================= */
+
+ul,
+ol {
+    padding-left: var(--espaco-5);
+
+    margin-bottom: var(--espaco-3);
+}
+
+
+li {
+    margin-bottom: var(--espaco-2);
+}
+
+
+/* =========================================================
+   14. CARDS
+   ========================================================= */
+
+.card {
+    background: var(--cor-neutra);
+
+    border: 1px solid #E0E0E0;
+
+    border-left: 5px solid var(--cor-primaria);
+
+    border-radius: 8px;
+
+    padding: var(--espaco-4);
+
+    margin-bottom: var(--espaco-3);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.10);
+}
+
+
+/* =========================================================
+   15. FORMULÁRIO
+   ========================================================= */
+
+form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--espaco-4);
+}
+
+
+fieldset {
+    border: 1px solid var(--cor-primaria-clara);
+
+    border-radius: 8px;
+
+    padding: var(--espaco-4);
+}
+
+
+legend {
+    color: var(--cor-primaria);
+
+    font-weight: bold;
+
+    padding: 0 var(--espaco-2);
+}
+
+
+label {
+    display: block;
+
+    font-weight: bold;
+
+    margin-bottom: var(--espaco-1);
+}
+
+
+input,
+select {
+    width: 100%;
+
+    padding: var(--espaco-2);
+
+    border: 1px solid #999;
+
+    border-radius: 4px;
+
+    font-size: var(--fonte-md);
+
+    margin-bottom: var(--espaco-3);
+}
+
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+
+    outline-offset: 2px;
+
+    border-color: var(--cor-secundaria);
+}
+/* Validação */
+
+input:valid,
+select:valid {
+    border-color: var(--cor-primaria);
+}
+
+
+input:invalid:not(:placeholder-shown) {
+    border-color: #C62828;
+}
+
+
+/* Checkbox */
+
+input[type="checkbox"] {
+    width: auto;
+
+    margin-right: var(--espaco-2);
+}
+
+
+/* =========================================================
+   16. BOTÕES
+   ========================================================= */
+
+button,
+.button {
+    display: inline-block;
+
+    padding:
+        var(--espaco-2)
+        var(--espaco-4);
+
+    border: 0;
+
+    border-radius: 4px;
+
+    background: var(--cor-primaria);
+
+    color: var(--cor-neutra);
+
+    font-size: var(--fonte-md);
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    margin-right: var(--espaco-2);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+    background: var(--cor-secundaria);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   17. ALERTAS
+   ========================================================= */
+
+.alert {
+    padding: var(--espaco-3);
+
+    margin: var(--espaco-3) 0;
+
+    border-radius: 6px;
+
+    background: #FFF8E1;
+
+    border-left: 5px solid var(--cor-destaque);
+}
+
+
+.alert-success {
+    background: #E8F5E9;
+
+    border-left-color: var(--cor-primaria);
+}
+
+
+/* =========================================================
+   18. MODAL
+   ========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: var(--espaco-4);
+
+    background: rgba(0, 0, 0, 0.60);
+
+    z-index: 1000;
+}
+
+
+.modal:target {
+    display: flex;
+}
+
+
+.modal-content {
+    position: relative;
+
+    width: min(600px, 100%);
+
+    background: var(--cor-neutra);
+
+    padding: var(--espaco-5);
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+
+    text-align: center;
+}
+
+
+.modal-close {
+    position: absolute;
+
+    top: 8px;
+
+    right: 12px;
+
+    color: var(--cor-texto);
+
+    font-size: 2rem;
+
+    text-decoration: none;
+}
+
+
+.modal-close:hover,
+.modal-close:focus {
+    color: var(--cor-primaria);
+}
+
+
+/* =========================================================
+   19. RODAPÉ
+   ========================================================= */
+
+footer {
+    background: var(--cor-texto);
+
+    color: var(--cor-neutra);
+
+    text-align: center;
+
+    padding: var(--espaco-4);
+
+    font-size: var(--fonte-sm);
+}
+
+
+/* =========================================================
+   20. RESPONSIVIDADE — 1200px
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    main {
+        max-width: 1100px;
+
+        padding: var(--espaco-4);
+    }
+
+    article {
+        grid-column: 2 / 12;
+    }
+}
+
+
+/* =========================================================
+   21. RESPONSIVIDADE — 1024px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    main {
+        grid-template-columns: repeat(10, 1fr);
+    }
+
+    article {
+        grid-column: 1 / 11;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+
+/* =========================================================
+   22. RESPONSIVIDADE — 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    main {
+        grid-template-columns: repeat(6, 1fr);
+
+        padding: var(--espaco-3);
+    }
+
+    article {
+        grid-column: 1 / 7;
+
+        padding: var(--espaco-3);
+    }
+
+
+    /* Hero */
+
+    .hero {
+        min-height: 330px;
+
+        overflow: visible;
+    }
+
+    .hero-overlay {
+        min-height: 330px;
+
+        padding: var(--espaco-4);
+
+        padding-bottom: 70px;
+    }
+
+
+    .hero h1 {
+        font-size: clamp(
+            1.8rem,
+            8vw,
+            2.5rem
+        );
+    }
+
+
+    .hero p {
+        font-size: var(--fonte-md);
+    }
+
+
+    /* Mostra botão Menu */
+
+    .hero .menu-toggle {
+        display: block;
+
+        margin-top: var(--espaco-4);
+    }
+
+
+    /* Esconde navegação */
+
+    .hero nav {
+        display: none;
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: 0;
+
+        width: 100%;
+
+        min-height: auto;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 2px;
+
+        padding: var(--espaco-2);
+
+        background: rgba(21, 101, 192, 0.98);
+    }
+
+
+    /* Abre quando clicar no checkbox */
+
+    #menu:checked ~ nav {
+        display: flex;
+    }
+
+
+    /* Links mobile */
+
+    .hero nav > a,
+    .hero nav .dropdown > a {
+        width: 100%;
+
+        text-align: center;
+
+        padding: var(--espaco-2);
+    }
+
+
+    /* Dropdown mobile */
+
+    .hero .dropdown {
+        width: 100%;
+
+        display: block;
+
+        text-align: center;
+    }
+
+
+    .hero .dropdown-content {
+        position: static;
+
+        transform: none;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin-top: 2px;
+
+        padding: var(--espaco-1);
+
+        box-shadow: none;
+
+        border-radius: 5px;
+    }
+
+
+    .hero .dropdown-content a {
+        width: 100%;
+
+        text-align: center;
+    }
+
+
+    /* No celular o dropdown abre pelo foco */
+
+    .hero .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+
+    .hero .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+}
+
+
+/* =========================================================
+   23. RESPONSIVIDADE — 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    main {
+        grid-template-columns: repeat(4, 1fr);
+
+        padding: var(--espaco-2);
+    }
+
+    article {
+        grid-column: 1 / 5;
+    }
+
+    section {
+        margin-bottom: var(--espaco-5);
+    }
+
+    article img {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   24. RESPONSIVIDADE — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    body {
+        font-size: var(--fonte-sm);
+    }
+
+
+    main {
+        grid-template-columns: 1fr;
+
+        padding: var(--espaco-2);
+    }
+
+
+    article {
+        grid-column: 1;
+
+        padding: var(--espaco-3);
+    }
+
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+
+    h3 {
+        font-size: var(--fonte-md);
+    }
+
+
+    button,
+    .button {
+        width: 100%;
+
+        margin-right: 0;
+
+        margin-bottom: var(--espaco-2);
+
+        text-align: center;
+    }
+}
